@@ -150,6 +150,7 @@
     "gather_success": "You successfully gathered a : {1}",
     "process_success": "You successfully processed a : {1}",
     "trunk": "Trunk",
+    "Hood": "Hood",
     "unflip": "Unflip",
     "store": "Store",
     "vehicle_trunk": "Vehicle Trunk",
