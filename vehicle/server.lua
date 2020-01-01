@@ -173,6 +173,28 @@ AddRemoteEvent("OpenTrunk", function(player)
     CallRemoteEvent(player, "OpenVehicleInventory", PlayerData[player].inventory, VehicleData[vehicle].inventory)
 end)
 
+AddRemoteEvent("OpenHood", function(player, ratio)
+    local vehicle = GetNearestCar(player)
+
+    if (ratio == nil) then
+        if (GetVehicleHoodRatio(vehicle) > 0.0) then
+            SetVehicleHoodRatio(vehicle, 0.0)
+        else
+            SetVehicleHoodRatio(vehicle, 60.0)
+        end
+    else
+        ratio = tonumber(ratio)
+
+        if (ratio > 90.0) then
+            ratio = 90.0
+        elseif (ratio < 0.0) then
+            ratio = 0.0
+        end
+
+        SetVehicleHoodRatio(vehicle, ratio)
+    end
+end)
+
 AddRemoteEvent("VehicleKeys", function(player) 
     local vehicle = GetNearestCar(player)
     local keyslist = VehicleData[vehicle].keys
